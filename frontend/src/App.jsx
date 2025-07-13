@@ -1,14 +1,14 @@
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { CreateProject } from "./pages/createProject";
 
-import './App.css'
 
 function App() {
- 
-
   return (
-    <>
-      Hello
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<CreateProject />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
