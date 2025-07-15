@@ -28,7 +28,7 @@ export const EditorComponent = () => {
             {   editorState.theme &&
                 <Editor 
                     height={'80vh'}
-                    width={'100%'}
+                    width={'40%'}
                     defaultLanguage='javascript'
                     defaultValue='// Welcome to the playground'
                     options={{
