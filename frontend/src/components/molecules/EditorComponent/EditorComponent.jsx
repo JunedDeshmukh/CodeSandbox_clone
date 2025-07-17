@@ -2,14 +2,16 @@ import Editor from '@monaco-editor/react';
 import { useEffect, useState } from 'react';
 import { useEditorSocketStore } from '../../../store/editorSocketStore';
 import { useActiveFileTabStore } from '../../../store/activeFileTabStore';
+import { extensionToFileType } from '../../../utils/extentionToFileType';
 
 export const EditorComponent = () => {
-
+    let timerId = null;
+    
     const [editorState, setEditorState] = useState({
         theme: null
     });
     const { editorSocket } = useEditorSocketStore();
-    const { activeFileTab, setActiveFileTab } = useActiveFileTabStore();
+    const { activeFileTab } = useActiveFileTabStore();
 
     async function downloadTheme() {
         const response = await fetch('/Dracula.json');
@@ -22,10 +24,22 @@ export const EditorComponent = () => {
         monaco.editor.defineTheme('dracula', editorState.theme);
         monaco.editor.setTheme('dracula');
     }
-    editorSocket?.on("readFileSuccess", (data) => {
-        console.log("Read file success", data);
-        setActiveFileTab(data.path, data.value);
-    })
+     function handleChange(value) {
+        // Clear old timer
+        if(timerId != null) {
+            clearTimeout(timerId);
+        }
+        // set the new timer
+        timerId = setTimeout(() => {
+            const editorContent = value;
+            console.log("Sending writefile event");
+            editorSocket.emit("writeFile", {
+                data: editorContent,
+                pathToFileOrFolder: activeFileTab.path
+            })
+        }, 2000);
+        
+    }
 
     useEffect(() => {
         downloadTheme();
@@ -43,6 +57,8 @@ export const EditorComponent = () => {
                         fontSize: 18,
                         fontFamily: 'monospace'
                     }}
+                    language={extensionToFileType(activeFileTab?.extension)}
+                    onChange={handleChange}
                     value={activeFileTab?.value ? activeFileTab.value : '// Welcome to the playground'}
                     onMount={handleEditorTheme}
                 />
