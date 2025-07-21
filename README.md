@@ -2,7 +2,7 @@
 
 ## 🖥️ Sample Preview  
 > Click on the image to see the full preview  
-[![CodeSandbox Screenshot](./CodeSandbox.png)](./CodeSandbox.png)  
+![CodeSandbox Screenshot]([./CodeSandbox.png](https://github.com/JunedDeshmukh/CodeSandbox_clone/blob/1f2bd3dffc3e595c403cce8d6bb32823db046dbf/frontend/public/CodeSandbox.png))
 
 A Code Sandbox that integrates a **code editor**, **terminal**, and **browser-like functionality** in a single interface.  
 
