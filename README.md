@@ -1,7 +1,6 @@
 # CodeSandbox Clone   
 
 ## 🖥️ Sample Preview  
-> Click on the image to see the full preview  
 ![CodeSandbox Screenshot](https://github.com/JunedDeshmukh/CodeSandbox_clone/blob/1f2bd3dffc3e595c403cce8d6bb32823db046dbf/frontend/public/CodeSandbox.png)
 
 A Code Sandbox that integrates a **code editor**, **terminal**, and **browser-like functionality** in a single interface.  
@@ -30,7 +29,6 @@ A Code Sandbox that integrates a **code editor**, **terminal**, and **browser-li
 
 ## 📡 Real-Time Communication  
 Utilized **WebSocket** technology via **Socket.IO** to establish real-time bidirectional communication between client and server.  
-> For a detailed guide on implementing WebSocket communication, refer to [Socket.IO Docs](https://socket.io/docs/v4).  
 
 ---
 
@@ -38,8 +36,3 @@ Utilized **WebSocket** technology via **Socket.IO** to establish real-time bidir
 The project uses **Docker** for seamless development and consistent deployment across environments.  
 
 ---
-
-## 🖥️ Sample Preview  
-> Click on the image to see the full preview  
-
-[![CodeSandbox Screenshot](./CodeSandbox.png)](./CodeSandbox.png)  
